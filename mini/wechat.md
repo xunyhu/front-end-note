@@ -19,3 +19,7 @@
 4. 事件绑定
 
    [小程序框架 /视图层 /事件系统 /介绍](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html)
+
+## 微信支付
+
+## 微信订阅消息

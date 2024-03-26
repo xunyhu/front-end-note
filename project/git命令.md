@@ -1,0 +1,1 @@
+1. 查看git用户名：`git config user.name`
