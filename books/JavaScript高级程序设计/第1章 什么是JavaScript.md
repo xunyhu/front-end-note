@@ -8,7 +8,7 @@
 
 ## 1.2 JavaScript 实现
 
-虽然 JavaScript 和 ECMAScript 基本上是同义词，但 JavaScript 远远不限于 ECMA-262 所定义的那样。没错，完整的 JavaScript 实现包含以下几个部分
+虽然 JavaScript 和 ECMAScript 基本上是同义词，但 JavaScript 远远不限于 ECMA-262 所定义的那样。没错，**完整的 JavaScript 实现**包含以下`三个部分`
 
 1. 核心（ECMAScript）
 2. 文档对象模型（DOM）
@@ -16,7 +16,7 @@
 
 ### 1.2.1 [ECMAScript](https://zh.wikipedia.org/zh-cn/ECMAScript)
 
-ECMAScript，即 `ECMA-262` 定义的语言，并不局限于 Web 浏览器。事实上，这门语言没有输入和输出之类的方法。[ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) 将这门语言作为一个基准来定义，以便在它之上再构建更稳健的脚本语言。Web 浏览器只是 ECMAScript 实现可能存在的一种宿主环境（host environment）​。宿主环境提供 ECMAScript 的基准实现和与环境自身交互必需的扩展。扩展（比如 DOM）使用 ECMAScript 核心类型和语法，提供特定于环境的额外功能。其他宿主环境还有服务器端 JavaScript 平台 Node.js 和即将被淘汰的 Adobe Flash。
+**ECMAScript**，即 `ECMA-262` 定义的语言，并不局限于 Web 浏览器。事实上，这门语言没有输入和输出之类的方法。[ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) 将这门语言作为一个基准来定义，以便在它之上再构建更稳健的脚本语言。Web 浏览器只是 ECMAScript 实现可能存在的一种宿主环境（host environment）​。宿主环境提供 ECMAScript 的基准实现和与环境自身交互必需的扩展。扩展（比如 DOM）使用 ECMAScript 核心类型和语法，提供特定于环境的额外功能。其他宿主环境还有服务器端 JavaScript 平台 Node.js 和即将被淘汰的 Adobe Flash。
 
 1. ECMAScript 版本
 
@@ -27,7 +27,7 @@ ECMAScript，即 `ECMA-262` 定义的语言，并不局限于 Web 浏览器。�
 
 ### 1.2.2 DOM
 
-文档对象模型（DOM, Document Object Model）是一个应用编程接口（API）​，用于在 HTML 中使用扩展的 XML。DOM 将整个页面抽象为一组分层节点。HTML 或 XML 页面的每个组成部分都是一种节点，包含不同的数据。比如下面的 HTML 页面：
+`文档对象模型（DOM, Document Object Model）是一个应用编程接口（API）​，用于在 HTML 中使用扩展的 XML。DOM 将整个页面抽象为一组分层节点。`HTML 或 XML 页面的每个组成部分都是一种节点，包含不同的数据。比如下面的 HTML 页面：
 
 ```xml
     <html>
@@ -44,7 +44,7 @@ DOM 通过创建表示文档的树，让开发者可以随心所欲地控制网�
 
 ### 1.2.3 BOM
 
-IE3 和 Netscape Navigator 3 提供了浏览器对象模型（BOM）API，用于支持访问和操作浏览器的窗口。使用 BOM，开发者可以操控浏览器显示页面之外的部分。而 BOM 真正独一无二的地方，当然也是问题最多的地方，就是它是唯一一个没有相关标准的 JavaScript 实现。HTML5 改变了这个局面，这个版本的 HTML 以正式规范的形式涵盖了尽可能多的 BOM 特性。由于 HTML5 的出现，之前很多与 BOM 有关的问题都迎刃而解了。
+IE3 和 Netscape Navigator 3 提供了`浏览器对象模型（BOM）API，用于支持访问和操作浏览器的窗口`。使用 BOM，开发者可以操控浏览器显示页面之外的部分。`而 BOM 真正独一无二的地方，当然也是问题最多的地方，就是它是唯一一个没有相关标准的 JavaScript 实现。HTML5 改变了这个局面，这个版本的 HTML 以正式规范的形式涵盖了尽可能多的 BOM 特性`。由于 HTML5 的出现，之前很多与 BOM 有关的问题都迎刃而解了。
 
 ## 1.3 JavaScript 版本
 
