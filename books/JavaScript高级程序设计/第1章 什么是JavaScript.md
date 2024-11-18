@@ -16,7 +16,7 @@
 
 ### 1.2.1 [ECMAScript](https://zh.wikipedia.org/zh-cn/ECMAScript)
 
-**ECMAScript**，即 `ECMA-262` 定义的语言，并不局限于 Web 浏览器。事实上，这门语言没有输入和输出之类的方法。[ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) 将这门语言作为一个基准来定义，以便在它之上再构建更稳健的脚本语言。Web 浏览器只是 ECMAScript 实现可能存在的一种宿主环境（host environment）​。宿主环境提供 ECMAScript 的基准实现和与环境自身交互必需的扩展。扩展（比如 DOM）使用 ECMAScript 核心类型和语法，提供特定于环境的额外功能。其他宿主环境还有服务器端 JavaScript 平台 Node.js 和即将被淘汰的 Adobe Flash。
+**ECMAScript**，即 `ECMA-262` 定义的语言，并不局限于 Web 浏览器。事实上，这门语言没有输入和输出之类的方法。[ECMA-262](https://ecma-international.org/publications-and-standards/standards/ecma-262/) 将这门语言作为一个基准来定义，以便在它之上再构建更稳健的脚本语言。Web `浏览器`只是 ECMAScript 实现可能存在的一种宿主环境（host environment）​。宿主环境提供 ECMAScript 的基准实现和与环境自身交互必需的扩展。扩展（比如 DOM）使用 ECMAScript 核心类型和语法，提供特定于环境的额外功能。其他宿主环境还有服务器端 JavaScript 平台 `Node.js` 和即将被淘汰的 `Adobe Flash`。
 
 1. ECMAScript 版本
 
