@@ -35,3 +35,11 @@
 
    > 问题原因：网络问题，无法连接 github.com
    > 解决方法：
+
+## 配置项目 git 用户名
+
+config 文件
+
+[user]
+email = xxx
+name = xxx
