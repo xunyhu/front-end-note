@@ -1,4 +1,4 @@
-# git 命令
+# git
 
 1. 查看 git 用户名：`git config user.name`
 

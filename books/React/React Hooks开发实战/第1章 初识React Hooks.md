@@ -4,7 +4,7 @@ React 是 Facebook 在 2013 年推出的一个用来构建用户界面的开源 
 
 ## 1.1 React Hooks 概述
 
-Hooks 是 React 官方团队在 React 16.8 版本中正式引入的概念。通俗地讲，Hooks 只是一些函数，`Hooks 可以用于在函数组件中引入状态管理和生命周期方法`。如果希望让 React 函数组件拥有状态管理和生命周期方法，`我们不需要再去将 React 函数组件重构成 React 类组件`，而可以直接使用 React Hooks。
+Hooks 是 React 官方团队在 **React 16.8 版本**中正式引入的概念。通俗地讲，Hooks 只是一些函数，`Hooks 可以用于在函数组件中引入状态管理和生命周期方法`。如果希望让 React 函数组件拥有状态管理和生命周期方法，`我们不需要再去将 React 函数组件重构成 React 类组件`，而可以直接使用 React Hooks。
 
 ### 1.1.1 React Hooks 的优点
 
