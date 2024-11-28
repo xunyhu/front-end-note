@@ -128,7 +128,7 @@ Webpack 配置的步骤如下。
 
    我们在编写 Less 的时候，通常会定义一些通用的样式变量，并且希望这些通用的样式变量能够在每个组件中直接使用，而不是每次都需要导入。style-resources-loader 这个库就是专门用于解决这个问题的。
 
-   1）安装 style-resources-loader，具体命令如下。
+   1）安装 `style-resources-loader`，具体命令如下。
 
    ```cmd
    npm install less
@@ -337,15 +337,99 @@ env-cmd 用于设置不同的环境变量。通过 env-cmd 进行设置，只需
 
    假设有一个订单模块，该模块有订单列表、商品列表功能。我们在 src/routes 目录下新建 Order.ts 文件。
 
-   react 中的 lazy 函数可以完成对路由的懒加载，也就是说，当前页面的所有资源文件都不会进入首页加载资源中，只有访问当前路由页面的时候才会独立拉取对应的资源文件，这样也就优化了项目的首次加载速度。
+   `react 中的 lazy 函数可以完成对路由的懒加载`，也就是说，当前页面的所有资源文件都不会进入首页加载资源中，只有访问当前路由页面的时候才会独立拉取对应的资源文件，这样也就优化了项目的首次加载速度。
+
+   ```jsx
+   import { lazy } from "react";
+   import { RouterType } from "./interface";
+
+   const OrderList = lazy(() => import("@/pages/order/orderList"));
+   const BusinessList = lazy(() => import("@/pages/order/businessList"));
+
+   const Routers: RouterType[] = [
+     {
+       path: "/order",
+       key: "order",
+       title: "订单管理",
+       children: [
+         {
+           path: "/order/order-list",
+           key: "order-list",
+           component: OrderList,
+           title: "订单列表",
+         },
+         {
+           path: "/order/business-list",
+           key: "business-list",
+           component: BusinessList,
+           title: "商品列表",
+         },
+       ],
+     },
+   ];
+
+   export default Routers;
+   ```
 
 2. 导入所有模块路由。
 
    因为每个路由模块都是按照业务模块为单位文件划分的，所以我们需要在路由入口文件中导入所有模块的路由，然后汇总导出路由。
 
+   src/routes/index 的内容如下
+
+   ```ts
+   import { RouterType } from "./interface";
+   import Oder from "./order";
+   import User from "./user";
+
+   const Routers: RouterType[] = [...Oder, ...User];
+
+   export default Routers;
+   ```
+
 3. 使用路由。
 
-   使用 lazy 异步加载组件，外层元素必须使用 Suspense 包裹，然后通过 Switch 包裹，实现页面路由的跳转切换。
+   `使用 lazy 异步加载组件，外层元素必须使用 Suspense 包裹，然后通过 Switch 包裹`，实现页面路由的跳转切换。
+
+   react-router-dom version 6, which `replaced Switch with the Routes` component. simply `replace Redirect with Navigate`, `replace useHistory with useNavigate`
+
+   src/App.tsx 的内容如下
+
+   ```tsx
+   import React, { FC, lazy, Suspense } from "react";
+   import { Route, Routes, Navigate, HashRouter } from "react-router-dom";
+   import { StoreState } from "@/store/StoreState";
+   import { useSelector } from "react-redux";
+
+   const AppLayout = lazy(() => import("@/pages/AppLayout"));
+   const MainLayout = lazy(() => import("@/pages/MainLayout"));
+   const Login = lazy(() => import("@/pages/login"));
+
+   const App: FC = () => {
+     const isLogin = useSelector<StoreState, boolean>(
+       (state: StoreState) => state.isLogin
+     );
+     return (
+       <HashRouter>
+         <Suspense fallback={<></>}>
+           <AppLayout>
+             <Routes>
+               <Route path="/login" key="login">
+                 <Login></Login>
+               </Route>
+               {isLogin ? <MainLayout /> : null}
+               <Navigate to="/login" />
+             </Routes>
+           </AppLayout>
+         </Suspense>
+       </HashRouter>
+     );
+   };
+
+   export default App;
+   ```
+
+   有了懒加载 React.lazy，如果需要再来一个加载中的动画，就要用到 Suspense 了。Suspense 组件的 fallback 方法用于组件加载完成之前页面的显示，以提供更好的交互体验。
 
 ## 7.8 HTTP 封装
 
@@ -372,11 +456,178 @@ Axios 的优势如下。
 封装 HTTP 的步骤如下。
 
 1. 通过 npm 安装 Axios
+
+   `npm install axios`
+
 2. 在/src/apis 目录下新建 request.ts 文件。首先封装基础的 HTTP 请求和基础函数。
+
+   ```ts
+   import axios from "axios";
+   import qs from "qs";
+
+   enum types {
+     POST = "POST",
+     GET = "GET",
+   }
+
+   enum State {
+     SUCCESS = "POST",
+     ERROR = "GET",
+   }
+
+   export interface ResponetFrom {
+     data?: any;
+     list?: any;
+     msg: State;
+   }
+
+   const JsonParse = (res: any): Object => {
+     try {
+       return JSON.parse(res);
+     } catch (error) {
+       return {};
+     }
+   };
+
+   //拦截器部分
+   axios.interceptors.request.use(
+     function (config) {
+       config.headers["Authorization"] = localStorage.getItem("token");
+       return config;
+     },
+     function (error) {
+       return Promise.reject(error);
+     }
+   );
+
+   /**
+    * http请求
+    * @param options
+    * @returns
+    */
+   const request = (options: any): Promise<ResponetFrom> => {
+     const axiosOptions = Object.assign(
+       {
+         transformResponse: [(data) => data],
+         headers: {
+           Accept: "application/json",
+           ContentType: "application/json;charset=UTF-8",
+         },
+         withCredentials: false,
+         timeout: 400000,
+         paramsSerializer: (params) => qs.stringify(params),
+         validateStatus: (status) => status >= 200 && status < 300,
+         baseURL: process.env.REACT_APP_BASE_URL,
+       },
+       options
+     );
+
+     return new Promise((resolve: Function, reject: Function) => {
+       axios(axiosOptions)
+         .then((res: any) => {
+           resolve({
+             ...JsonParse(res.data),
+             msg: State.SUCCESS,
+           });
+         })
+         .catch((error) => {
+           reject({
+             data: error,
+             msg: State.ERROR,
+           });
+         });
+     });
+   };
+   ```
+
+   接着基于 HTTP 基础函数来封装 POST 请求类型。
+
+   ```ts
+   /**
+    * http post请求方式
+    * @param {*} url
+    * @param {*} data
+    */
+   export const httpPost = (
+     url: string,
+     data: any = {}
+   ): Promise<ResponetFrom> => {
+     return request({
+       url,
+       method: types.POST,
+       data,
+     });
+   };
+   ```
+
+   然后基于 HTTP 基础函数封装 GET 请求类型。
+
+   ```ts
+   /**
+    * http get请求方式
+    * @param url
+    * @param params
+    * @returns
+    */
+   export const httpGet = (
+     url: string,
+     params: any = {}
+   ): Promise<ResponetFrom> => {
+     return request({
+       url,
+       method: types.GET,
+       params,
+     });
+   };
+   ```
+
+   最后基于 HTTP 基础函数封装 FormData 请求类型。
+
+   ```ts
+   /**
+    * http post formData 请求方式
+    */
+   export const httpFormData = (
+     url: string,
+     params: any = {}
+   ): Promise<ResponetFrom> => {
+     const headers: any = {
+       "Content-Type": "multipart/form-data",
+     };
+     const formData = new FormData();
+     for (const field in params) {
+       if (params[field]) {
+         formData.append(field, params[field]);
+       }
+     }
+     return request({
+       url,
+       method: types.POST,
+       data: formData,
+       headers,
+     });
+   };
+   ```
+
+   完成上面的 HTTP 请求封装后，我们需要考虑如何更好地定义接口，接口层如何使用定义的接口。
 
 ### 2.定义接口文件
 
+为了使项目具有可维护性，我们应采用模块化的方式来定义接口文件。
+
 ### 3.导出所有模块
+
+接下来我们需要以业务单位导出所有的业务模块，然后对各个模块进行汇总。这里会涉及/src/apis/index.ts 文件，该文件的内容如下。
+
+```ts
+import UserApi from "@/apis/userApi";
+import OrderApi from "@/apis/orderApi";
+
+export default {
+  UserApi,
+  OrderApi,
+};
+```
 
 ### 4.在业务组件中使用
 
@@ -384,7 +635,7 @@ Axios 的优势如下。
 
 在登录页面上需要实现的功能包括：输入账号和密码，通过请求接口判断账号和密码是否正确。如果正确，则判断该账号是否有菜单相关权限。如果有，则将账号信息保存到本地缓存，然后跳转到当前账号可用的第一个菜单。若账号或密码不正确，则弹出错误提示。
 
-使用 redux-persist 完成数据持久化（也就是将 Redux 中的数据同步到 localStorage 中）以避免当页面刷新的时候发生数据丢失问题。
+`使用 redux-persist 完成数据持久化`（也就是将 Redux 中的数据同步到 localStorage 中）以避免当页面刷新的时候发生数据丢失问题。
 
 ## 7.10 Mock.js 配置
 
@@ -392,7 +643,7 @@ Axios 的优势如下。
 
 基于上述要求，笔者推荐使用 `Mock.js 工具`。Mock.js 可以在不修改现有代码的情况下拦截 AJAX 请求，并创建返回模拟的接口数据。
 
-正常的项目开发流程应该是：UI→ 定义接口 → 定义 Mock.js 接口 → 请求 mock 数据 →UI 完成 → 对接后端 → 完成对接。
+**正常的项目开发流程应该是：UI→ 定义接口 → 定义 Mock.js 接口 → 请求 mock 数据 →UI 完成 → 对接后端 → 完成对接。**
 
 Mock.js 接口需要完全依照正常/src/apis 中的接口 URL 规则来定义。mock 模块也可以按照/src/apis 中的接口规则来定义。这样就可以在后端接口完成后，通过修改 mock 状态，直接请求真实的后端接口。由于正常的开发中可能存在重复定义接口 URL 的可能，为了避免接口 URL 冲突，也可以定义一个变量作为命名空间。
 
