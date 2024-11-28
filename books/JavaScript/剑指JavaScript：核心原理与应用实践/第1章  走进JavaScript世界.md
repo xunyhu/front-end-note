@@ -52,6 +52,8 @@ DOM（Document Object Model，文档对象模型）是 HTML 文档为 JavaScript
 - • ECMAScript 5.0，发布于 2009 年。
 - • ECMAScript 6.0，发布于 2015 年，因此也被称为 ECMAScript 2015。ECMAScript 6.0 是具有里程碑意义的版本，新增了大量的特性和语法。
 
+![语法](https://read-1305214533.cos.ap-guangzhou.myqcloud.com/45235_20_1.jpg)
+
 ECMAScript 2016 到 ECMAScript 2021 各版本新增的语法如下表所示。
 
 <table>
