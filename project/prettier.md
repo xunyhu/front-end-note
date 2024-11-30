@@ -252,6 +252,7 @@ If you change any options, it’s recommended to do it via a configuration file.
 
 1. Experimental Ternaries
 2. Print Width
+3. HTML Whitespace Sensitivity
 
 ### Configuration File
 
