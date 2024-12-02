@@ -2,5 +2,8 @@
   "[markdown]": {
     "editor.formatOnSave": true,
     "editor.formatOnPaste": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
   }
 }
