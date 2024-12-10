@@ -1,6 +1,14 @@
 # git
 
-1. 查看 git 用户名：`git config user.name`
+1. 查看 git 用户名：
+
+   `git config user.name`
+
+2. 配置 git 用户名
+
+   全局配置：`git config --global user.name "Your Name"`
+
+   当前仓库配置：`git config user.name "Your Name"`
 
 ## 常见报错
 
@@ -43,3 +51,13 @@ config 文件
 [user]
 email = xxx
 name = xxx
+
+## 生成 ssh key
+
+1. 生成 ssh
+
+   `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
+2. 测试 SSH 连接
+
+   `ssh -T yourwebsite.com`
