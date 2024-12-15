@@ -9,3 +9,9 @@
 2. 切换不同窗口
 
    control + R
+
+## 插件
+
+1. Material Icon Theme
+
+   可定义文件夹图标、文件的颜色
