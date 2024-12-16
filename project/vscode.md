@@ -14,4 +14,8 @@
 
 1. Material Icon Theme
 
-   可定义文件夹图标、文件的颜色
+   可定义文件夹图标
+
+2. jsdoc
+
+   代码注释
