@@ -9,3 +9,6 @@
 2. 切换不同窗口
 
    control + R
+
+## 插件配置
+1. [Top 15 VSCode Extensions of 2024](https://prismic.io/blog/top-vscode-extensions)
