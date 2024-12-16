@@ -10,5 +10,8 @@
 
    control + R
 
-## 插件配置
-1. [Top 15 VSCode Extensions of 2024](https://prismic.io/blog/top-vscode-extensions)
+## 插件
+
+1. Material Icon Theme
+
+   可定义文件夹图标、文件的颜色
