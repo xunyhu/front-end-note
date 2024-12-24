@@ -10,6 +10,11 @@
 
    当前仓库配置：`git config user.name "Your Name"`
 
+3. 版本回退
+
+   - git reset --hard commit_id
+   - git reset --hard HEAD^
+
 ## 常见报错
 
 1. Failed to connect to github.com port 443 after 21072 ms: Timed out
@@ -62,7 +67,6 @@ name = xxx
 
    `ssh -T yourwebsite.com`
 
-
 ## 创建两个不同的 SSH 密钥，分别用于 GitHub 和 GitLab，可以按照以下步骤进行：
 
 ### 步骤 1: 创建第一个 SSH 密钥（用于 GitHub）
@@ -75,6 +79,7 @@ name = xxx
    ```
 
    其中：
+
    - `-t rsa` 指定使用 RSA 加密算法。
    - `-b 4096` 设置密钥的长度为 4096 位。
    - `-C "your_email@example.com"` 是用来标识密钥的注释（可以使用 GitHub 注册时的邮箱）。

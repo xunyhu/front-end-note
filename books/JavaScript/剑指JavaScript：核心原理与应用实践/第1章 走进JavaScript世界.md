@@ -4,7 +4,7 @@
 
 ## 1.2 JavaScript 的历史
 
-1995 年，Netscape 公司雇佣程序员布莱登·艾奇，经过十天的时间就设计出了 LiveScript 1.0，后来将其改名为 JavaScript，并对外宣称 JavaScript 是 Java 的补充。
+1995 年，Netscape 公司雇佣程序员**布莱登·艾奇**，经过十天的时间就设计出了 LiveScript 1.0，后来将其改名为 JavaScript，并对外宣称 JavaScript 是 Java 的补充。
 
 1996 年 11 月，Netscape 公司决定将 JavaScript 提交给 `Ecma 国际`（见图 1-2）​，希望 JavaScript 能够成为国际标准，以此抵抗微软公司。
 
