@@ -38,10 +38,11 @@ Vue.js 的主要特点如下：
 
 CDN 的全称是 content delivery network，即内容分发网络。它是构建在现有的互联网基础之上的一层智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发和调度等功能模块，使用户可就近获取所需内容，解决 Internet 网络拥挤的状况，提高用户访问网站的响应速度。
 
-Vue 3.0 的官网中提供了一个 CDN 链接“https://unpkg.com/vue@next”​，在项目中直接通过`<script>`标签引入即可，代码如下：
+Vue 3.0 的官网中提供了一个 CDN 链接`https://unpkg.com/vue@next`​，在项目中直接通过`<script>`标签引入即可，代码如下：
 
 ```js
 <script src="https://unpkg.com/vue@next"></script>
+// 测试发现需要改成 @next -> @3
 ```
 
 ### 1.2.2 使用 NPM

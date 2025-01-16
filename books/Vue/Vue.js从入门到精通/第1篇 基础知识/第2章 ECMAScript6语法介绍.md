@@ -4,6 +4,8 @@ ECMAScript 6（简称 ES6）是于 2015 年 6 月正式发布的 JavaScript 语�
 
 本章知识架构及重难点如下。
 
+![image](https://read-1305214533.cos.ap-guangzhou.myqcloud.com/Figure-P27_2374.jpg)
+
 ## 2.1 块级声明
 
 ### 2.1.1 let 声明
