@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <div id="app" v-if="showContent">
+        <p>在模版中绑定表达式：{{str.substr(0, str.indexOf('@'))}}</p>
+        <p>计算属性：{{intercept}}</p>
+        <p>{{str2}}</p>
+        <p>{{intercept2}}</p>
+    </div>
     <script src="https://unpkg.com/vue@3"></script>
+    <script type="text/javascript">
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    str: "1194547767@qq.com",
+                    str2: "my heart will go on",
+                    showContent: false
+                }
+            },
+            computed: {
+                intercept() {
+                    return this.str.substr(0, this.str.indexOf('@'));
+                },
+                intercept2() {
+                    const list = this.str2.split(' ');
+                    for (let i = 0; i<list.length; i++) {
+                        list[i] = list[i].charAt(0).toUpperCase() + list[i].substr(1).toLowerCase();
+                    }
+                    return list.join(" ");
+                }
+            },
+            mounted() {
+                // 在 mounted 生命周期钩子中，将 showContent 设置为 true，显示内容
+                this.showContent = true;
+            }
+        }).mount('#app')
+    </script>
 </body>
+
 </html>
