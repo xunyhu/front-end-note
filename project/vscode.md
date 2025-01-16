@@ -23,3 +23,7 @@
 2. jsdoc
 
    代码注释
+
+## 配置
+
+1. [ts检查](https://worktile.com/kb/ask/569454.html)
