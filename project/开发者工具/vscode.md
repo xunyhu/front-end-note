@@ -2,6 +2,8 @@
 
 1. [code 命令](https://juejin.cn/post/7262635514896613431)
 
+    VSCode 中打开命令面板 : Command + Shift + P => Shell => PATH
+
 ## 快捷键
 
 1. 切换同窗口标签页
