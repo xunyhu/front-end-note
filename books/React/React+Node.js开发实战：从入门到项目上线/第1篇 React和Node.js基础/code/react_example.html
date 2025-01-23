@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 解析JSX语法 -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script>
+    const e = React.createElement('h1', null, 'Hello React!');
+    // ReactDOM.render(e, document.getElementById("app"));
+    //运行 http-server 在浏览器打开本页面
+</script>
+<!-- JSX语法 -->
+<script type="text/babel">
+    ReactDOM.render(<h1>Hello React JSX!</h1>,  document.getElementById("app"))
+</script>
+</html>
