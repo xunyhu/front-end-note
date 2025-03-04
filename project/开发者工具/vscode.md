@@ -4,6 +4,8 @@
 
     VSCode 中打开命令面板 : Command + Shift + P => Shell => PATH
 
+2. [VSCode 教程](https://www.runoob.com/vscode/vscode-tutorial.html)
+
 ## 快捷键
 
 1. 切换同窗口标签页
