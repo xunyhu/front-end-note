@@ -4,7 +4,7 @@ ECMAScript 6（简称 ES6）是于 2015 年 6 月正式发布的 JavaScript 语�
 
 本章知识架构及重难点如下。
 
-![image](https://read-1305214533.cos.ap-guangzhou.myqcloud.com/Figure-P27_2374.jpg)
+<image src="https://read-1305214533.cos.ap-guangzhou.myqcloud.com/Figure-P27_2374.jpg" width="800"/>
 
 ## 2.1 块级声明
 
@@ -147,4 +147,62 @@ console.log(cal.product(3, 6, 5)); //90
 
 ## 2.9 类
 
+1. 创建类和实例
+2. 类的构造函数
+
+   每个类中包含了一个特殊的方法 `constructor`，它是类的构造函数，其作用是对类进行初始化。通过 new 关键字生成对象实例后会自动调用该构造函数。如果没有显式定义，在类的内部会自动创建一个 constructor()构造函数。
+
+3. 在类中添加方法
+
+   类中的所有方法不需要写 function 关键字，而且多个方法之间不需要添加分隔符号。
+
+4. 类的继承
+
+   类的继承是指子类可以继承父类的一些属性和方法。要实现类的继承，就需要在创建类时使用 `extends` 关键字。  
+   在定义的子类中需要使用 `super` 方法，该方法用于引用父类的构造函数。在子类的构造函数中通过 super()方法调用父类的构造函数，这样就可以访问父类的属性和方法。
+
+   <image src="https://font-end-1305214533.cos.ap-guangzhou.myqcloud.com/wxread%2FFigure-P42_4765.jpg" width="800"/>
+
+5. 静态成员
+
+   在创建类的类体中，在成员前面添加 `static` 关键字就可以定义静态成员。静态成员只能通过类名进行调用。
+
 ## 2.10 模块
+
+1. 模块概述
+
+   将 JavaScript 程序拆分为可按需导入的单独模块的机制，这就是模块化的编程。模块化编程就是将一个复杂的程序根据一定的规范封装成一个或多个文件，并组合在一起。使用这种方式，可以将代码分解到多个文件中，每个文件都称为一个模块。一个模块通常是一个类或者多个函数组成的方法库。
+
+   在 JavaScript 没有模块功能的时候，只能通过第三方规范（如 CommonJS 规范、AMD 规范）实现模块化。而在 ES6 中加入了模块规范，该规范成为浏览器和服务器通用的模块解决方案，比使用第三方规范更有效率。
+
+   ECMAScript 在 2015 年开始支持模块标准，此后逐渐发展，现已得到了所有主流浏览器的支持。
+
+2. ES6 中的模块
+
+   ES6 为 JavaScript 提供了 export 和 import 关键字，用于导出和导入模块。
+
+   1 导出模块
+
+   在使用 export 语句进行导出时，可以使用 `as` 关键字对导出的标识符进行重命名。  
+   如果只想导出模块中的一个函数或类，可以使用默认导出的形式，即 `export default` 语句。  
+   使用 export 语句只能导出已经命名的变量、函数或类。而使用 export default 语句的默认导出则可以导出任意表达式，包括匿名函数。
+
+   2 导入模块
+
+   使用通配符 `*` 将每一个模块功能导入一个模块功能对象中。
+
+   ```js
+   import * as obj from "./module.js";
+   ```
+
+   如果导入默认导出的内容，可以使用 default 关键字并提供别名进行导入，也可以直接使用自定义的标识符作为默认导出的别名进行导入。
+
+   ```js
+   import {default as exam} from './module.js'; 或  import exam from './module.js';
+   ```
+
+   3 在网页中使用模块
+
+   如果想在 HTML 文件中使用 ES6 模块，需要将 script 标签的 type 属性值设置为 `module`，用于声明该 script 标签所包含的代码作为模块在浏览器中执行。
+
+   <image src="https://font-end-1305214533.cos.ap-guangzhou.myqcloud.com/wxread%2FFigure-P48_5599.jpg" width="800"/>
