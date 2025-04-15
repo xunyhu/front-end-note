@@ -334,7 +334,3 @@ Promise 构造函数只接收一个参数，该参数是一个执行器函数，
    如果想在 HTML 文件中使用 ES6 模块，需要将 script 标签的 type 属性值设置为 `module`，用于声明该 script 标签所包含的代码作为模块在浏览器中执行。
 
    <image src="https://font-end-1305214533.cos.ap-guangzhou.myqcloud.com/wxread%2FFigure-P48_5599.jpg" width="800"/>
-
-```
-
-```
