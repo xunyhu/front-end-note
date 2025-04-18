@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <template v-for="i in 6">
+            <anchor :level="i" title="'h'+(i+1)">Vue.js从入门到精通</anchor>
+        </template>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script type="text/javascript">
+        const vm = Vue.createApp({});
+        vm.component('anchor', {
+            // template: `
+            //     <div>
+            //         <h1 v-if="level === 1">
+            //             <a :href="'#' + title"><slot></slot></a>
+            //         </h1>
+            //     </div>
+            // `,
+            props: {
+                level: {
+                    type: Number,
+                    required: true
+                },
+                title: {
+                    type: String,
+                    default: ''
+                }
+            },
+            render() {
+                const { h } = Vue;
+                return h('h' + this.level, {}, this.$slots.default());
+            }
+        })
+        vm.mount('#app');
+    </script>
+</body>
+</html>
