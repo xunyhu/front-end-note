@@ -12,6 +12,7 @@
 
 - [浏览器工作原理 - MDN](https://developer.mozilla.org/zh-CN/docs/Web/Performance/How_browsers_work)
 - B站：Web 前端浏览器动画讲解视频
+- [The JavaScript Event Loop Explained with Examples](https://medium.com/@ignatovich.dm/the-javascript-event-loop-explained-with-examples-d8f7ddf0861d)
 
 ✏️ 输出任务：
 
