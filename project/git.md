@@ -180,3 +180,37 @@ Host gitlab.com
    ```
 
 这样，你就成功地为 GitHub 和 GitLab 配置了两个不同的 SSH 密钥。
+
+## 安装 NRM
+
+```cmd
+npm install -g nrm --registry=https://registry.npmmirror.com
+```
+
+## 常用 NRM命令
+
+```cmd
+# 查看当前仓库地址列表
+nrm ls
+   *npm -------- https://registry.npmjs.org/
+    yarn ------- https://registry.yarnpkg.com/
+    cnpm ------- http://r.cnpmjs.org/
+    taobao ----- https://registry.npm.taobao.org/
+    nj --------- https://registry.nodejitsu.com/
+    npmMirror -- https://skimdb.npmjs.com/registry/
+    edunpm ----- http://registry.enpmjs.org/
+# 查看当前仓库地址
+nrm current
+    npm
+# 切换仓库地址
+nrm use taobao
+    Registry has been set to: https://registry.npm.taobao.org/
+nrm current
+    taobao
+# 添加新仓库地址
+nrm add my http://xxxx.registry.com/
+    add registry my success
+# 删除仓库地址
+nrm del my
+    delete registry my success
+```
