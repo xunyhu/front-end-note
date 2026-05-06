@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "74a2d64642963980",
+    "id": "f39e16a3a5d365ae",
     "type": "split",
     "children": [
       {
-        "id": "975791703adf235a",
+        "id": "e5d2141279a02256",
         "type": "tabs",
         "children": [
           {
-            "id": "61c796a958cc136f",
+            "id": "6b29c5d68dd14042",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "React/1-基础概念.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "1-基础概念"
+              "title": "新标签页"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "6b6ece04da1fa73c",
+    "id": "527251ed5aa3fc8e",
     "type": "split",
     "children": [
       {
-        "id": "dba271b3c97a4c2f",
+        "id": "441ca18891a641d1",
         "type": "tabs",
         "children": [
           {
-            "id": "4b4b55cab782d50d",
+            "id": "7d63a4661fb4a87b",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -48,7 +44,7 @@
             }
           },
           {
-            "id": "9590b508d47cce05",
+            "id": "000d0b9c73762d6f",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -65,7 +61,7 @@
             }
           },
           {
-            "id": "14a3187c3c7ce127",
+            "id": "8277a7904dc0cd91",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -78,23 +74,22 @@
       }
     ],
     "direction": "horizontal",
-    "width": 249.5
+    "width": 300
   },
   "right": {
-    "id": "a2be8c5ecd606ada",
+    "id": "75b1a2a147535f4e",
     "type": "split",
     "children": [
       {
-        "id": "32775f3a357276ee",
+        "id": "827161a239f14c5f",
         "type": "tabs",
         "children": [
           {
-            "id": "f5e02fcdb42198ed",
+            "id": "db2ec41ff729b6c0",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "React/通信.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,25 +99,24 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "通信 的反向链接列表"
+              "title": "反向链接"
             }
           },
           {
-            "id": "5e2620b0e9a2423f",
+            "id": "08f5e1ba074e2399",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "React/通信.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "通信 的出链列表"
+              "title": "出链"
             }
           },
           {
-            "id": "51c5558be9049fef",
+            "id": "5cf6d416f9b5683a",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -137,7 +131,7 @@
             }
           },
           {
-            "id": "475945ad31e5d4ce",
+            "id": "46e63aae2045ae68",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -151,18 +145,17 @@
             }
           },
           {
-            "id": "331d1c15160b02b5",
+            "id": "7bdd07dfda48b78f",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "React/通信.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "通信 的大纲"
+              "title": "大纲"
             }
           }
         ]
@@ -183,39 +176,8 @@
       "bases:新建数据库": false
     }
   },
-  "active": "61c796a958cc136f",
+  "active": "7d63a4661fb4a87b",
   "lastOpenFiles": [
-    "React/React 的 Diff 算法与 key 的作用.md",
-    "React/1-基础概念.md",
-    "React/2-组件&生命周期.md",
-    "React/什么是React.md",
-    "React/如何避免组件重复渲染.md",
-    "React/3-状态管理&性能.md",
-    "React/5-高级&原理.md",
-    "React/4-Hooks深入.md",
-    "React/6-场景&综合题.md",
-    "React/通信.md",
-    "React/项目中遇到的最大难点.md",
-    "React/状态管理怎么选型.md",
-    "React/React 路由是怎么实现的.md",
-    "小程序专项/订餐小程序.md",
-    "Vue/Vue2和Vue3的区别.md",
-    "Vue/Vue2 的生命周期有哪些.md",
-    "工程化/项目如何做环境区分.md",
-    "工程化/如何做错误监控.md",
-    "Vue/MVC和MVVM模式的区别.md",
-    "性能优化/首屏加载.md",
-    "性能优化",
-    "小程序专项/小程序支付流程.md",
-    "小程序专项/如何做小程序登录.md",
-    "执行上下文.md",
-    "作用域与闭包.md",
-    "js基础-1.md",
-    "js基础-2.md",
-    "Vue/assets/1677830973-gNoWGQ-image.webp",
-    "Vue/assets/1677830876-FXzrYJ-image.webp",
-    "Vue/assets",
-    "Vue",
-    "React"
+    "未命名"
   ]
 }
